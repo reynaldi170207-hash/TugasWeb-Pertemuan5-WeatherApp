@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Langit — Aplikasi Cuaca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<div class="sky"></div>
+
+<main class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">☁</span>
+      <span class="brand-name">Cuaca</span>
+    </div>
+    <div class="topbar-actions">
+      <button type="button" id="unitToggle" class="unit-toggle" aria-label="Ganti satuan suhu">
+        <span class="unit-option active" data-unit="C">°C</span>
+        <span class="unit-option" data-unit="F">°F</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="search-block">
+    <form id="searchForm" class="search-form">
+      <input type="text" id="cityInput" placeholder="Cari kota, misalnya Medan" autocomplete="off">
+      <button type="submit">Cari</button>
+    </form>
+    <div id="historyRow" class="history-row"></div>
+  </section>
+
+  <section id="loadingState" class="state loading-state hidden">
+    <div class="spinner"></div>
+    <p>Mengambil data cuaca…</p>
+  </section>
+
+  <section id="errorState" class="state error-state hidden">
+    <p id="errorMessage"></p>
+  </section>
+
+  <section id="emptyState" class="state empty-state">
+    <p>Ketik nama kota untuk melihat cuaca hari ini.</p>
+  </section>
+
+  <section id="weatherResult" class="weather-card hidden">
+    <div class="weather-main">
+      <div class="weather-place">
+        <h1 id="cityName"></h1>
+        <p id="weatherDate"></p>
+      </div>
+      <div class="weather-hero">
+        <img id="weatherIcon" alt="">
+        <span id="temperature" class="temperature"></span>
+      </div>
+      <p id="description" class="description"></p>
+    </div>
+    <div class="weather-details">
+      <div class="detail">
+        <span class="detail-label">Terasa seperti</span>
+        <span id="feelsLike" class="detail-value"></span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Kelembaban</span>
+        <span id="humidity" class="detail-value"></span>
+      </div>
+      <div class="detail">
+        <span class="detail-label">Angin</span>
+        <span id="wind" class="detail-value"></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="forecastSection" class="forecast-section hidden">
+    <h2>Prakiraan 5 Hari</h2>
+    <div id="forecastRow" class="forecast-row"></div>
+  </section>
+
+</main>
+
+<script src="script/app.js"></script>
+</body>
+</html>
